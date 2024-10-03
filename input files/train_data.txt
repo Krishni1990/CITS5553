@@ -1,0 +1,83 @@
+Results Interpretation	:	How results are calculated	:	"For more information about how results were calculated refer to Homepage -> Main Menu options-> Technical Information"
+
+Learning	:	Sense of belonging at school, Students agreeing that school is "a place where I belong" (Speaking Out Survey WA), high or low sense of belonging at school, students reporting high emotional engagement with teachers	:	"Click on Atlas maps, then navigate to right-hand side pane and click on themes and select "Learning -> Sense of belonging at school" and then select suitable sub category for finding the data you are looking for."
+
+Menu Options	:	Data about Licensing and attribution	:	"To find the data about Licensing and attribution, go to Homepage -> Main Menu options-> Technical Information -> Licensing and attribution"
+
+Learning	:	Australian early development census (AEDC), Combined domains, Communication skills and general knowledge domain, Emotional maturity domain, Language and cognition domain, Physical health and wellbeing domain, Social competence domain, developmentally at risk, developmentally on track, developmentally vulnerable	:	"Click on Atlas maps, then navigate to right-hand side pane and click on themes and select "Learning -> Australian early development census (AEDC)" and then select suitable sub category for finding the data you are looking for."
+
+Valued, Loved and Safe	:	Young people offending (WA only), Assault (Family) offences, Assault (Non-Family) offences Assault (Non-Family) offenders, Burglary offences, Burglary offenders, drug offences,  drug offenders, Graffiti offenders,  Graffiti offences, Motor vehicle stealing, Property damage, stealing, receiving and possession of stolen, threatening, total offences, total offenders	:	"Click on Atlas maps, then navigate to right-hand side pane and click on themes and select "Healthy -> Valued, loved and safe - > Young people offending (WA only)" and then select suitable sub category for finding the data you are looking for. e options on the right-hand side pane."
+
+Terminology	:	what is Visualisation	:	"The wellbeing data in each statistical area is displayed alongside results for all Australian areas using different colours. Depending on the dataset selected in the atlas, the score or measure can fall in a low, average, high, or in-between position on the national scale. For more details, visit https://australianchildatlas.com/visualisation"
+
+Link	:	Metadata document		:	"Please use the link to access the document on Metadata. https://static1.squarespace.com/static/60e510deca3ca956c8fe35bf/t/66e104dfdfe5051a028fb17a/1726022881115/Metadata+Document_ACYWA_11092024.pdf"
+
+No Info	:	Aboriginal children, First Nations Aboriginal, indigenous, First Nations children and young people	:	"In the Atlas prototype, data has not yet been disaggregated for First Nations children and young people. This decision arises from our profound awareness of the commonly inadequate representation of wellbeing outcomes concerning First Nations children and young people."
+
+Results Interpretation	:	National scale result	:	The result for the region of interest will be displayed as a black dot on the national scale, as well as in numerical value (either as a whole number or a percentage) on the right. For data available for selected states only, the national scale will show as the state/territory scale. Click on "i" symbol to view an explanation of the national scale.
+
+Valued, Loved and Safe	:	Family comparison, one parent families with children under 15 years old, Same sex parent families with dependent children	:	 "Click on Atlas maps, then navigate to right-hand side pane and click on themes and select "Healthy -> Valued, loved and safe - > Family comparison" and then select suitable sub category for finding the data you are looking for. e options on the right-hand side pane."
+
+Terminology	:	SA3	:	"SA3s are larger regions made up of neighbouring SA2 areas. They generally have populations between 30,000 and 130,000 people and often align with local government boundaries. In regional areas, SA3s represent distinct regions, and they are named after well-known regions, cities, or economic hubs, for more information visit https://australianchildatlas.com/statistical-areas."
+
+Valued, Loved and Safe	:	Family conflict, Family fighting – Speaking Out Survey Western Australia	:	"Click on Atlas maps, then navigate to right-hand side pane and click on themes and select "Healthy -> Valued, loved and safe - > Family conflict" and then select suitable sub category for finding the data you are looking for. e options on the right-hand side pane."
+
+Valued, Loved and Safe	:	Youth justice, Young people under community-based supervision, Young people in detention	:	"Click on Atlas maps, then navigate to right-hand side pane and click on themes and select "Healthy -> Valued, loved and safe - > Youth justice" and then select suitable sub category for finding the data you are looking for. e options on the right-hand side pane."
+
+Healthy	:	Estimated population, Number of children and young people - 5 year age groups, Number of children and young people- single year	:	"Click on Atlas maps, then navigate to right-hand side pane and click on themes and select "Healthy - > Estimated population" and then select suitable sub category for finding the data you are looking for."
+
+Healthy	:	Physical health, nutrition, obesity and healthy weight, physical activity	:	"Click on Atlas maps, then navigate to right-hand side pane and click on themes and select "Healthy - > Physical Health" and then select suitable sub category for finding the data you are looking for."
+
+Terminology	:	SA4	:	 "SA4s are broad geographical areas consisting of neighbouring SA3 regions. They are mainly used for labour market analysis and have populations ranging from 100,000 to 500,000 people. These areas are named after major cities, employment centres, or well-known regional areas they cover, for more information visit https://australianchildatlas.com/statistical-areas."
+
+Menu Options	:	Technical information & methods	:	"To find Technical information & methods, go to Homepage -> Main Menu options-> Technical Information -> Technical information & methods"
+
+Filters	:	Filter data by Political Areas	:	" To get data in Political Areas, on the Atlas maps, click on the map icon located at the top right-hand side of the page. From there, you can select/filter data by clicking LGA."
+
+Material Basics	:	Youth unemployment, Unemployed and seeking full-time work	:	"Click on Atlas maps, then navigate to right-hand side pane and click on themes and select "Healthy -> Material basics - > Youth unemployment" and then select suitable sub category for finding the data you are looking for."
+
+Help	:	Atlas menu items	:	"The second help screen explains the five Atlas menu items: 1) Themes, 2) Age group, gender and sex, 3) Collection year, 4) Statistical areas, and 5) Service layers."
+
+Terminology	:	What is Metadata	: 	"Metadata facilitates and supports the discovery, identification, organisation and interoperability of research outputs. Having rich metadata helps maximise exposure, reuse and citation of research findings. for more information, visit https://australianchildatlas.com/metadata."
+
+Filters	:	Region	:	"There are three ways you can select a region or area of interest. Option 1 - On the Atlas map, Enter a region or area of interest into the search box on the top left-hand corner of the screen. Option 2 - Select region of your interest in the box located below the theme menu and click on the arrow to zoom into your current location. Option 3 -  Click anywhere on the interactive map to zoom in on it"
+
+Healthy	:	Hospital admissions, all hospitals (WA only), hospital admissions by principal diagnosis, public hospitals 	:	"Click on Atlas maps, then navigate to right-hand side pane and click on themes and select "Healthy - > Hospital admissions" and then select suitable sub category for finding the data you are looking for."
+
+Results Interpretation	:	Data Source	:	Click on "i" in the left bottom corner next to the selected indicator to see the data source including the name of data provider and the year of data collection. For more information about the data source and notes on the data refer to Homepage -> Main Menu options-> Technical information.
+
+Healthy	:	Disability and chronic health conditions, Children and young people with a profound or severe core activity limitation, Children and young people with type 1 diabetes, Chronic physical illness related hospital admissions (WA only), Diabetes related hospital admissions	(WA only):	 "Click on Atlas maps, then navigate to right-hand side pane and click on themes and select "Healthy - > Disability and chronic health conditions" and then select suitable sub category for finding the data you are looking for."
+
+Healthy	:	Health at birth, births, first antenatal visit, infant mortality, low birthweight, preterm births, smoking in pregnancy	:	"Click on Atlas maps, then navigate to right-hand side pane and click on themes and select "Healthy - > Health at birth" and then select suitable sub category for finding the data you are looking for."
+
+Menu Options	:	Statistical areas	:	"To find detailed information about Statistical areas, go to Homepage -> Main Menu options-> Technical Information -> Statistical areas"
+
+Healthy	:	Mortality, child mortality, youth mortality, youth suicide	:	"Click on Atlas maps, then navigate to right-hand side pane and click on themes and select "Healthy - > Mortality" and then select suitable sub category for finding the data you are looking for."
+
+Filters	:	Age and Sex	:	"On Atlas maps, click on the fingerprint icon next to themes for age groups and sex breakdown. Select the option(s) of interest. Please note that not all data has the same options available. For more information about age and sex selections, refer to Technical information."
+
+Link	:	Contact us, Know more	:	"https://australianchildatlas.com/contact-acywa, https://www.uwa.edu.au/schools/population-global-health, https://www.uwa.edu.au/ or send an email to:  info@australianchildatlas.com"
+
+Identity and culture	:	Language, children or young people who don't speak English well or not at all, Children and young people who speak a language other than English at home	:	"Click on Atlas maps, then navigate to right-hand side pane and click on themes and select "Identity and Culture - > Language" and then select suitable sub category for finding the data you are looking for."
+
+Valued, Loved and Safe	:	Children and young people as victims of crime, Children and young people as victims of crime (NSW only), Victims of domestic violence related assault, Victims of sexual assault	:	 "Click on Atlas maps, then navigate to right-hand side pane and click on themes and select "Healthy -> Valued, loved and safe - > Children and young people as victims of crime" and then select suitable sub category for finding the data you are looking for. e options on the right-hand side pane."
+
+Help	:	Open help screens	:	"Click on Atlas maps, navigate to the right-hand side pane, and click the ‘i’ icon in the top right-hand corner to open the three help screens and familiarise yourself with the map platform. You can switch between help screens by clicking on one of the three dots at the bottom."
+
+Material Basics	:	Socio-economic Indexes of Australia (SEIFA), Index of Economic Resources, Index of Education and Occupation, Index of Relative Socio-Economic Advantage and Disadvantage, Index of Relative Socio-Economic Disadvantage	:	"Click on Atlas maps, then navigate to right-hand side pane and click on themes and select "Healthy -> Material basics - > Socio-economic Indexes of Australia (SEIFA)" and then select suitable sub category for finding the data you are looking for. e options on the right-hand side pane."
+
+Learning	:	School attendance (rate), all schools, government Schools, non- government schools	:	"Click on Atlas maps, then navigate to right-hand side pane and click on themes and select "Learning -> School attendance (rate)" and then select suitable sub category for finding the data you are looking for."
+
+Participation	:	Connection to community, belonging in community, Community has fun places, Adults listening to young people (Growing up in Queensland survey)	:	"Click on Atlas maps, then navigate to right-hand side pane and click on themes and select "Healthy -> Participation - > Connection to community" and then select suitable sub category for finding the data you are looking for. e options on the right-hand side pane."
+
+Healthy	:	Immunisation, Chickenpox, Diphtheria, fully immunised, Hepatitis B, Measles, Polio	:	"Click on Atlas maps, then navigate to right-hand side pane and click on themes and select "Healthy - > Immunisation" and then select suitable sub category for finding the data you are looking for."
+
+Filters	:	gender, gender identity, gender categories	:	"To filter data by sex, on the Atlas maps, click on the fingerprint icon at the top right-hand side of the page. You can then choose from options like male, female, or all."
+
+Learning	:	"Average NAPLAN score, grammar and punctuation, numeracy, reading, spelling, writing	:	"Click on Atlas maps, then navigate to right-hand side pane and click on themes and select "Learning -> Average NAPLAN score" and then select suitable sub category for finding the data you are looking for."
+
+Filters	:	Statistical Areas	:	"To filter data for various Statistical Areas, on the Atlas maps, click on the map icon located at the top right-hand side of the page. From there, you can select/filter data by clicking SA2, SA3, SA4 or states."
+
+Help	:	National scale	:	"The first help screen explains the National scale and scoring categories represented in different colours."
+
+Resources	:	Atlas Video Guide	:	"To access the Atlas Video Guide, go to home page, click Resources and user guides -> ACYWA Resources"

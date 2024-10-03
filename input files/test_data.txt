@@ -1,0 +1,17 @@
+Terminology	:	SA2	:	 "SA2s are medium-sized areas that represent communities with shared social and economic characteristics. They typically have populations ranging from 3,000 to 25,000 people, with smaller populations in rural areas. SA2s are the smallest areas where non-census statistics can be released by the ABS. In urban areas, they often align with single suburbs or groups of related suburbs, for more information visit https://australianchildatlas.com/statistical-areas."
+
+Help	:	Map interactions	:	"The third help screen shows an example of a map interaction."
+
+Healthy	:	Sexual health, safe sexual and reproductive health behaviours, sexually transmitted infections	:	"Click on Atlas maps, then navigate to right-hand side pane and click on themes and select "Healthy - > Sexual Health" and then select suitable sub category for finding the data you are looking for."
+
+Healthy	:	Substance use, alcohol, drugs, e-cigarettes, smoking	:	"Click on Atlas maps, then navigate to right-hand side pane and click on themes and select "Healthy - > Substance use" and then select suitable sub category for finding the data you are looking for."
+
+Filters	:	age group, specific age, age categories, age range	:	" To filter data by age groups, on the Atlas maps, click on the fingerprint icon located at the top right-hand side of the page. From there, you can adjust the age groups from 0 to 24."
+
+Valued, Loved and Safe	:	Child protection, Care and protection orders, Children admitted to out-of-home care, Children discharged from out-of-home care	:	 "Click on Atlas maps, then navigate to right-hand side pane and click on themes and select "Healthy -> Valued, loved and safe - > Child protection" and then select suitable sub category for finding the data you are looking for. e options on the right-hand side pane."
+
+Learning	:	Early childhood education and care, children attending preschool (%) of enrolled, children attending preschool, Childcare availability, enrolment early childhood education (preschool) (N), children attending preschool (%) of enrolled, children attending preschool, children per place_average, places per child_average, pop. living in areasof low levels of childcare supply (%), Pop. living in areas of low levels of childcare supply	:	"Click on Atlas maps, then navigate to right-hand side pane and click on themes and select "Learning -> Early childhood education and care" and then select suitable sub category for finding the data you are looking for."
+
+Results Interpretation	:	Time series	:	"Results for all collection years available are indicated on the time series chart. Clicking on any of the time dots will show results for the specific year or time period."
+
+Menu Options	:	How or where to find metadata	:	"To find information about metadata, go to "Homepage -> Main Menu options-> Technical Information -> Metadata"
