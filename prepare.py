@@ -6,40 +6,52 @@ MAX_ROWS = 10000
 
 # Message that is included with every prompt.
 SYSTEM_CONTENT = (
-    "Determine the content category of the following text."
+    "Determine the failure mode of the observation provided by the user."
 )
 
-def prepare_data(input_file, output_file):
-    """Convert a single text file into a JSON Lines file.
-
-    Args:
-        input_file (str): Path to the input text file.
-        output_file (str): Path to the output JSON Lines file.
+def prepare_data():
+    """Iterate over each dataset (train, validation, and test), converting
+    them into JSONL format where each line contains a message with a label, keyword, and response.
     """
-    dataset = []
+    # Get the current working directory
+    current_dir = os.getcwd()
+    
+    datasets = ["train", "validation", "test"]
+    
+    for ds in datasets:
+        dataset = []
+        
+        # Set the correct file path using the current working directory
+        fn = os.path.join(current_dir, f"{ds}_data.txt")
+        
+        # Read the file and process the data
+        with open(fn, "r") as f:
+            data = [line.strip().split(":") for line in f.readlines()]
+        
+        for i, line in enumerate(data[:MAX_ROWS]):
+            if len(line) == 3:
+                label, keyword, response = line
+                messages = [
+                    {"role": "system", "content": SYSTEM_CONTENT},
+                    {"role": "user", "content": f"Keyword: {keyword.strip()}"},
+                    {"role": "assistant", "content": response.strip()}
+                ]
+                dataset.append({"label": label.strip(), "messages": messages})
 
-    # Read the data from the input text file with specified encoding
-    with open(input_file, "r", encoding="utf-8") as f:
-        data = [line.strip() for line in f.readlines()]
+        # Write to JSONL file in a 'prepared' directory within the current directory
+        prepared_dir = os.path.join(current_dir, "prepared")
 
-    # Prepare the data for JSON Lines format
-    for i, text in enumerate(data[:MAX_ROWS]):
-        messages = []
-        messages.append({"role": "system", "content": SYSTEM_CONTENT})
-        messages.append({"role": "user", "content": text})
-        messages.append({"role": "assistant", "content": "Category not assigned"})
-        dataset.append({"messages": messages})
-
-    # Write the data to the output JSON Lines file
-    with open(output_file, "w", encoding="utf-8") as f:
-        for row in dataset:
-            f.write(json.dumps(row))
-            f.write("\n")
+        # Ensure the directory exists
+        os.makedirs(prepared_dir, exist_ok=True)  
+        output_path = os.path.join(prepared_dir, f"{ds}.jsonl")
+        
+        with open(output_path, "w") as f:
+            for row in dataset:
+                f.write(json.dumps(row))
+                f.write("\n")
 
 def main():
-    input_file = "./scraped_content.txt"
-    output_file = "sample.jsonl"
-    prepare_data(input_file, output_file)
+    prepare_data()
 
 if __name__ == "__main__":
     main()
