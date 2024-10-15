@@ -1,219 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <style>
+        /* Global font settings for consistency */
+        body, .chatbot-text {
+            font-family: 'Calibri', 'Arial', sans-serif;
+        }
+
+        /* Chatbot Avatar Container */
+        #chatbotContainer {
+            position: fixed;
+            bottom: 50px;
+            right: 20px;
+            z-index: 1000;
+            display: block !important;
+        }
+
+        #avatarWrapper {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            animation: float 3s ease-in-out infinite;
+            transition: transform 0.3s ease;
+        }
+
+        #chatAvatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid #3E4E6B;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        #avatarSpeech {
+            position: absolute;
+            top: -50px;
+            left: -110px;
+            background-color: #3E4E6B;
+            color: #FFF;
+            padding: 10px;
+            border-radius: 10px;
+            width: 180px;
+            text-align: center;
+            display: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #avatarWrapper:hover #avatarSpeech {
+            display: block;
+        }
+
+        #chatbox {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 350px;
+            height: 500px;
+            border: 1px solid #ccc;
+            background-color: #F9F7F1;
+            border-radius: 10px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+
+        /* Full-screen styles */
+        #chatbox.fullscreen {
+            width: 100%;
+            height: 100%;
+            bottom: 0;
+            right: 0;
+            border-radius: 0;
+        }
+
+        /* Header styling */
+        #chatboxHeader {
+            background-color: #4CAF50;
+            color: #FFF;
+            padding: 10px;
+            font-size: 16px; /* Slightly larger font for the header */
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        #chatboxHeader img {
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        #chatboxHeader span {
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        #chatboxHeader button {
+            background: none;
+            border: none;
+            margin-left: 5px;
+            cursor: pointer;
+            padding: 2px;
+        }
+
+        #chatboxHeader button img {
+            width: 16px;
+            height: 16px;
+            border-radius: 2px;
+        }
+
+        #chatboxHeader button[title]:hover::after {
+            content: attr(title);
+            position: absolute;
+            background: #000;
+            color: #fff;
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 12px;
+            bottom: -30px;
+            right: 0;
+            white-space: nowrap;
+            z-index: 1001;
+        }
+
+        #messages {
+            height: 350px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 0 15px 15px 15px;
+            flex-grow: 1;
+            font-size: 14px;
+            display: flex;
+            flex-direction: column; /* Use flexbox for messages */
+        }
+
+        .message {
+            margin-bottom: 10px;
+            display: flex; /* Use flex to align items */
+        }
+
+        /* User message bubbles */
+        .userMessage, .botMessage, .follow-up {
+            padding: 10px;
+            border-radius: 10px;
+            display: inline-block;
+            max-width: 80%;
+            word-wrap: break-word;
+            /* Remove float */
+        }
+
+        /* Align user messages to the right */
+        .userMessage {
+            align-self: flex-end; /* Align user messages to the right */
+            background-color: #D1E8FF;
+            color: #000;
+        }
+
+        /* Align bot messages to the left */
+        .botMessage {
+            align-self: flex-start; /* Align bot messages to the left */
+            background-color: #E8F0D8;
+            color: #000;
+        }
+
+        .follow-up {
+            background-color: #E0E0E0; /* Light grey color for follow-up message */
+            color: #000;
+            border: none; /* No border */
+            clear: both; /* Ensure follow-up message does not float */
+            align-self: flex-start; /* Align follow-up message to the left */
+          	padding: 10px; /* Add padding for better spacing */
+          	border-radius: 10px; /* Match the message bubble style */
+        }
+
+        #inputContainer {
+            display: flex;
+            padding: 0 15px;
+            margin-bottom: 10px;
+        }
+
+        #userMessage {
+            flex-grow: 1;
+            padding: 12px;
+            border: 1px solid #3E4E6B;
+            border-radius: 5px;
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        button {
+            padding: 12px 20px;
+            background-color: #4CAF50; 
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #45A049; 
+        }
+
+        #downloadButton {
+            margin: 0 15px 10px 15px;
+            background-color: #4CAF50;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+<body>
+
 <!-- Avatar and Chatbox -->
 <div id="chatbotContainer">
-  <div id="avatarWrapper" onclick="toggleChatbox()">
-    <img src="https://cdn-icons-png.flaticon.com/512/194/194938.png" alt="Chat Avatar" id="chatAvatar">
-    <div id="avatarSpeech">How may I help you today?</div>
-  </div>
+    <div id="avatarWrapper" onclick="toggleChatbox()">
+        <img src="https://i.postimg.cc/fR6hzdh4/Screenshot-2024-10-03-101707.png" alt="Chat Avatar" id="chatAvatar">
+        <div id="avatarSpeech">How may I assist you today?</div>
+    </div>
 
-  <div id="chatbox" style="display:none;">
-    <div id="messages"></div>
-    <input type="text" id="userMessage" placeholder="Type your message..." onkeydown="if(event.key === 'Enter'){ sendMessage(); }" />
-    <button onclick="sendMessage()">Send</button>
-  </div>
+    <div id="chatbox" style="display:none;">
+        <div id="chatboxHeader">
+            <img src="https://i.postimg.cc/fR6hzdh4/Screenshot-2024-10-03-101707.png" alt="Logo"> 
+            <span>Virtual Assistance</span>
+            <button title="Full Screen" onclick="toggleFullscreen()" style="margin-left: 2px;">
+                <img src="https://i.postimg.cc/CMq27L9G/button-v1.jpg" alt="Expand" style="width: 11px; height: 11px;">
+            </button>
+            <button title="Close" onclick="exitChat()">✖</button>
+        </div>
+        <div id="messages"></div>
+        <div id="inputContainer">
+            <input type="text" id="userMessage" placeholder="Type your message..." onkeydown="if(event.key === 'Enter'){ sendMessage(); }" />
+            <button title="Send Message" onclick="sendMessage()">Send</button>
+        </div>
+        <div id="downloadButtonContainer">
+            <button id="downloadButtonCSV" title="Download CSV Logs" onclick="downloadLogs('csv')">Download CSV Logs</button>
+            <button id="downloadButtonTXT" title="Download TXT Logs" onclick="downloadLogs('txt')">Download TXT Logs</button>
+        </div>
+    </div>
 </div>
-
-<!-- Chatbot Styles -->
-<style>
-  /* Chatbot Avatar Container */
-  #chatbotContainer {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-  }
-
-  /* Avatar Wrapper for animation */
-  #avatarWrapper {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    animation: float 3s ease-in-out infinite;
-  }
-
-  /* Chatbot Avatar */
-  #chatAvatar {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: 2px solid #4CAF50;
-  }
-
-  /* Speech Bubble */
-  #avatarSpeech {
-    position: absolute;
-    top: -50px;
-    left: -100px;
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px;
-    border-radius: 10px;
-    width: 180px;
-    text-align: center;
-    font-size: 14px;
-    display: none; /* Initially hidden */
-  }
-
-  /* Show speech bubble on hover */
-  #avatarWrapper:hover #avatarSpeech {
-    display: block;
-  }
-
-  /* Chatbox Styles */
-  #chatbox {
-    position: fixed;
-    bottom: 90px;
-    right: 20px;
-    width: 300px;
-    border: 1px solid #ccc;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-  }
-
-  #messages {
-    height: 200px;
-    overflow-y: scroll;
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: #fff;
-    border-radius: 5px;
-  }
-
-  .message {
-    margin-bottom: 10px;
-  }
-
-  /* User message bubbles */
-  .userMessage {
-    text-align: right;
-    background-color: #D1E8FF;
-    color: #000;
-    padding: 10px;
-    border-radius: 10px;
-    display: inline-block;
-    max-width: 80%;
-    word-wrap: break-word;
-  }
-
-  /* Bot message bubbles */
-  .botMessage {
-    text-align: left;
-    background-color: #E3FFC1;
-    color: #000;
-    padding: 10px;
-    border-radius: 10px;
-    display: inline-block;
-    max-width: 80%;
-    word-wrap: break-word;
-  }
-
-  #userMessage {
-    width: 80%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 10px;
-  }
-
-  button {
-    padding: 10px 15px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-
-  button:hover {
-    background-color: #45a049;
-  }
-
-  /* Floating Animation */
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
-</style>
 
 <!-- Chatbot Script -->
 <script>
-  // Replace this with your ngrok URL or deployed server URL
-  const API_URL = 'http://<your-ngrok-url>.ngrok.io/chat';  // Use the URL provided by ngrok
+    const API_URL = 'https://render-test-6-rwbo.onrender.com/chat';  // API endpoint for chat messages
 
-  let isSendingMessage = false;
+    let isSendingMessage = false;
+    let isFirstTime = true;
 
-  function toggleChatbox() {
-    const chatbox = document.getElementById('chatbox');
-    chatbox.style.display = (chatbox.style.display === 'none') ? 'block' : 'none';
-  }
+    function toggleChatbox() {
+        const chatbox = document.getElementById('chatbox');
+        const avatarSpeech = document.getElementById('avatarSpeech');
+        const messages = document.getElementById('messages');
 
-  // Function to close the chatbox if clicking outside the chatbox area
-  function closeChatboxOnOutsideClick(event) {
-    const chatbox = document.getElementById('chatbox');
-    const avatarWrapper = document.getElementById('avatarWrapper');
+        if (chatbox.style.display === 'none') {
+            chatbox.style.display = 'block';
+            avatarSpeech.style.display = 'none';
 
-    if (!chatbox.contains(event.target) && !avatarWrapper.contains(event.target)) {
-      chatbox.style.display = 'none';
-    }
-  }
+            // Reset isFirstTime so the welcome message appears every time the chat is opened
+            isFirstTime = true;
 
-  // Add event listener to detect clicks outside the chatbox
-  document.addEventListener('click', function(event) {
-    closeChatboxOnOutsideClick(event);
-  });
-
-  async function sendMessage() {
-    const userMessageInput = document.getElementById('userMessage');
-    const userMessage = userMessageInput.value;
-
-    // Check if userMessage is empty, don't send empty messages
-    if (userMessage.trim() === '' || isSendingMessage) return;
-
-    isSendingMessage = true;
-
-    // Append user's message to the chat
-    const messages = document.getElementById('messages');
-    messages.innerHTML += `<div class="message userMessage"><strong>You:</strong> ${userMessage}</div>`;
-
-    // Clear input field immediately after sending
-    userMessageInput.value = '';
-
-    // Scroll to the bottom of the messages div
-    messages.scrollTop = messages.scrollHeight;
-
-    try {
-      // Send the user message to Flask API
-      const response = await fetch(API_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: userMessage }),
-      });
-
-      const data = await response.json();
-
-      // Append bot's response to the chat
-      messages.innerHTML += `<div class="message botMessage"><strong>Bot:</strong> ${data.reply}</div>`;
-    } catch (error) {
-      // Handle any errors from the API
-      messages.innerHTML += `<div class="message botMessage"><strong>Bot:</strong> Oops! Something went wrong.</div>`;
+            if (isFirstTime) {
+                messages.innerHTML += <div class="message botMessage"><strong>Bot:</strong> Hello! Welcome to the Atlas Map Navigation Assistant. How can I assist you today?</div>;
+                messages.scrollTop = messages.scrollHeight;
+                isFirstTime = false; // Set to false after the first message is displayed
+            }
+        } else {
+            chatbox.style.display = 'none';
+            avatarSpeech.style.display = 'block';
+        }
     }
 
-    // Scroll to the bottom of the messages div again
-    messages.scrollTop = messages.scrollHeight;
-    
-    isSendingMessage = false;
-  }
+    function toggleFullscreen() {
+        const chatbox = document.getElementById('chatbox');
+        chatbox.classList.toggle('fullscreen');
+    }
 
-  // Stop propagation when clicking inside the chatbox or avatar so that the chatbox doesn't close
-  document.getElementById('avatarWrapper').addEventListener('click', function(event) {
-    event.stopPropagation();
-  });
-  document.getElementById('chatbox').addEventListener('click', function(event) {
-    event.stopPropagation();
-  });
+    async function sendMessage() {
+        const userMessageInput = document.getElementById('userMessage');
+        const userMessage = userMessageInput.value;
+
+        if (userMessage.trim() === '' || isSendingMessage) return;
+
+        isSendingMessage = true;
+
+        const messages = document.getElementById('messages');
+        messages.innerHTML += <div class="message userMessage"><strong>You:</strong> ${userMessage}</div>;
+
+        userMessageInput.value = '';
+        messages.scrollTop = messages.scrollHeight;
+
+        try {
+            const response = await fetch(API_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: userMessage }),
+            });
+
+            const data = await response.json();
+
+            // Assuming the response has a field reply
+            messages.innerHTML += <div class="message botMessage"><strong>Bot:</strong> ${data.reply}</div>;
+
+            // Display default follow-up message without label
+            // const followUpMessage = data.followUp ? data.followUp : "Is there another question I can help you with?";
+            // messages.innerHTML += <div class="message follow-up">${followUpMessage}</div>;
+
+        } catch (error) {
+            messages.innerHTML += <div class="message botMessage"><strong>Bot:</strong> Oops! Something went wrong.</div>;
+        }
+
+        messages.scrollTop = messages.scrollHeight;
+        isSendingMessage = false;
+    }
+
+    function exitChat() {
+        const messages = document.getElementById('messages');
+        
+        // Show goodbye message before exiting
+        messages.innerHTML += <div class="message botMessage"><strong>Bot:</strong> Thank you for using the Atlas Map Navigation Assistant. Goodbye! 👋</div>;
+        messages.scrollTop = messages.scrollHeight;
+
+        // Delay closing the chatbox
+        setTimeout(() => {
+            const chatbox = document.getElementById('chatbox');
+            chatbox.style.display = 'none'; 
+            messages.innerHTML = '';  // Clear messages when exiting
+        }, 3000); // 3 seconds delay
+    }
+
+    function downloadLogs(type) {
+        let logDownloadURL;
+        if (type === 'csv') {
+            logDownloadURL = 'https://render-test-6-rwbo.onrender.com/download_logs';
+        } else if (type === 'txt') {
+            logDownloadURL = 'https://render-test-6-rwbo.onrender.com/download_logs_txt';
+        }
+        window.open(logDownloadURL, '_blank');
+    }
+
+    document.getElementById('avatarWrapper').addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
+    document.getElementById('chatbox').addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
 </script>
+
+</body>
+</html>
